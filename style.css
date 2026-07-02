@@ -1,0 +1,109 @@
+/* Shared design system for SplintFab Scanner app resources.
+   Kept in sync with the Boom Consulting LLC site (boomcon.space) so
+   navigating between the two feels seamless. Self-contained: no external
+   fonts or cross-domain assets, so these pages stay independent of the domain. */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1F4E79;
+  --navy-dark: #163a5c;
+  --ink: #1a1a1a;
+  --muted: #5a6673;
+  --line: #e5e8ec;
+  --bg: #f6f8fa;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav (identical to the LLC site) */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.brand:hover { text-decoration: none; }
+.brand .mark {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: linear-gradient(135deg, var(--navy), #2e6fa8);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.85rem; font-weight: 800;
+}
+.nav-links { display: flex; gap: 20px; font-size: 0.92rem; }
+.nav-links a { color: var(--muted); font-weight: 500; }
+.nav-links a:hover { color: var(--navy); text-decoration: none; }
+@media (max-width: 560px) { .nav-links { display: none; } }
+
+/* Hero (gradient banner) — text is explicitly white so it never inherits
+   the dark body/paragraph colour on top of the navy background. */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: #fff;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+.hero .crumb { font-size: 0.82rem; color: #fff; opacity: 0.75; margin-bottom: 14px; }
+.hero .crumb a { color: #fff; opacity: 0.95; }
+.hero h1 { color: #fff; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+.hero p { max-width: 600px; margin: 14px auto 0; color: #fff; opacity: 0.92; font-size: 1.08rem; }
+
+/* Document card (privacy / support body) */
+main {
+  max-width: 760px; margin: 40px auto;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  padding: 40px 48px;
+}
+.meta { font-size: 0.85rem; color: #666; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+main h2 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 26px 0 8px; }
+main h2:first-child, main h2:first-of-type { margin-top: 0; }
+main p { margin-bottom: 12px; color: #333; }
+main a { color: var(--navy); }
+
+/* Support FAQ accordions */
+details { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; }
+summary {
+  padding: 12px 16px; font-weight: 600; cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between; align-items: center;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.2rem; color: var(--navy); }
+details[open] summary::after { content: "\2212"; }
+.detail-body { padding: 4px 16px 14px; color: #444; font-size: 0.95rem; }
+.contact-box { background: #eaf1f8; border-left: 4px solid var(--navy); border-radius: 6px; padding: 16px 20px; margin-top: 8px; }
+
+/* Index resource list */
+.reslist { max-width: 620px; margin: 40px auto; padding: 0 24px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px 8px; }
+.card .row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 18px; border-bottom: 1px solid var(--line); }
+.card .row:last-child { border-bottom: none; }
+.card .row .t { font-weight: 700; }
+.card .row .d { color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+.card .row a.go { color: var(--navy); font-weight: 600; white-space: nowrap; }
+
+/* Footer (identical to the LLC site) */
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; text-align: center; padding: 30px 24px 40px; }
+footer a { color: var(--muted); margin: 0 8px; }
+
+@media (max-width: 640px) {
+  main { margin: 16px; padding: 24px 20px; }
+  .hero { padding: 52px 20px 46px; }
+  .hero h1 { font-size: 1.8rem; }
+}
